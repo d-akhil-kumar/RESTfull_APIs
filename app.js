@@ -6,6 +6,11 @@ const errHandler = require('./utilities/errHandler.js')
 const morgan = require('morgan')
 const logger = require('./utilities/logger')
 const corsHandler = require('./utilities/handlingCors')
+const dotenv = require('dotenv');
+
+
+
+dotenv.config();
 
 const app = express()
 
