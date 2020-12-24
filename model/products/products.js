@@ -21,7 +21,7 @@ const productsSchema = mongoose.Schema(
         timestamps: {
             createdAt: true,
             updatedAt: true,
-          },
+          }
     }
 )
 
