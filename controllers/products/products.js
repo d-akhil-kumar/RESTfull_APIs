@@ -13,7 +13,7 @@ exports.get = async (req, res) => {
 
         if (data.length > 0) {
 
-            res.status(201).json(
+            res.status(200).json(
                 {
                     status: 'Success',
                     data: {
@@ -101,7 +101,7 @@ exports.getById = async (req, res) => {
         const data = await model.findOne({ productId: req.params.productId }, {_id : 0, __v : 0})
 
         if (data != null) {
-            res.status(201).json(
+            res.status(200).json(
                 {
                     status: 'Success',
                     data: data
@@ -192,7 +192,7 @@ exports.deleteById = async (req, res) => {
 
         if (data.deletedCount == 1) {
 
-            res.status(201).json(
+            res.status(200).json(
                 {
                     status: 'Success',
                     data: 'Product Deleted Successfully'

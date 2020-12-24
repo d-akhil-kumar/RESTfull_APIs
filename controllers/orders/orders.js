@@ -1,4 +1,5 @@
 const model = require('../../model/orders/orders.js')
+const productsModel = require('../../model/products/products.js')
 const helper = require('../../utilities/helper.js')
 
 
@@ -54,7 +55,61 @@ exports.get = async (req, res) => {
 
 
 exports.add = async (req, res) => {
-    res.send('add new order')
+
+    try {
+
+        const product = await productsModel.findOne({productId : req.body.productId}, {_id : 0, __v : 0})
+
+        if(product != null){
+
+            req.body.orderId = await helper.generateOrderId
+            req.body.product = product
+            
+
+            const data = model.create(req.body)
+
+            res.status(201).json(
+                {
+                    status: 'Success',
+                    data: {
+    
+                        about: data,
+                        request: {
+                            method: 'GET',
+                            url: process.env.SERVER_NAME + process.env.PORT + '/orders/' + data.orderId
+                        }
+    
+                    }
+                }
+            )
+
+
+
+
+        }
+        else{
+            res.status(400).json(
+                {
+                    status: 'fail',
+                    msg: 'No Product Found'
+                }
+            )
+        }
+        
+    } catch (error) {
+
+        res.status(500).json(
+            {
+                status: 'fail',
+                msg: error
+            }
+        )
+        
+    }
+    
+    
+
+
 }
 
 
@@ -65,7 +120,7 @@ exports.getById = async (req, res) => {
         const data = await model.findOne({ orderId: req.params.orderId }, {_id : 0, __v : 0})
 
         if (data != null) {
-            res.status(201).json(
+            res.status(200).json(
                 {
                     status: 'Success',
                     data: data
@@ -102,7 +157,7 @@ exports.deleteById = async (req, res) => {
 
         if (data.deletedCount == 1) {
 
-            res.status(201).json(
+            res.status(200).json(
                 {
                     status: 'Success',
                     data: 'Order Deleted Successfully'
