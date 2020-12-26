@@ -2,6 +2,7 @@ const model = require('../../model/products/products.js')
 const helper = require('../../utilities/helper.js')
 const dotenv = require('dotenv')
 
+
 dotenv.config()
 
 
@@ -61,7 +62,10 @@ exports.add = async (req, res) => {
 
         const id = await helper.generateProductId()
         req.body.productId = id
-
+        console.log(req.file)
+        req.body.productImage = req.file.path.replace(/\\/g, "/").substring("public".length);
+        
+        
 
 
         const data = await model.create(req.body)
@@ -73,6 +77,7 @@ exports.add = async (req, res) => {
 
                     about: data,
                     request: {
+                        
                         method: 'GET',
                         url: process.env.SERVER_NAME + process.env.PORT + '/products/' + data.productId
                     }
@@ -133,6 +138,8 @@ exports.updateById = async (req, res) => {
     try {
 
         const data = await model.findOne({ productId: req.params.productId })
+
+        req.body.productImage = req.file.path.replace(/\\/g, "/").substring("public".length)
 
         if (data != null) {
 

@@ -17,9 +17,10 @@ const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+
 app.use(morgan('combined', { stream: logger }))
 
-
+app.use(express.static('public'))
 app.use(corsHandler)
 
 app.use('/products', productsRoute)

@@ -10,6 +10,7 @@ Things Used:
     6. Mongoose: using mongoDB ODM, for easy collections schema and model
     7. dotenv: to set and read enviroment variables
     8. counter utility: to generate unique sequence/id for documents
+    9. multer: to store files and accept data in form-data type
     
 
 
