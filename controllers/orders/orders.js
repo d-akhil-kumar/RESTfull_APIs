@@ -58,15 +58,16 @@ exports.add = async (req, res) => {
 
     try {
 
-        const product = await productsModel.findOne({productId : req.body.productId}, {_id : 0, __v : 0})
+        const productData = await productsModel.findOne({productId : req.body.productId}, {_id : 0, __v : 0})
 
-        if(product != null){
+        if(productData != null){
 
-            req.body.orderId = await helper.generateOrderId
-            req.body.product = product
+            req.body.orderId = await helper.generateOrderId()
+            
             
 
-            const data = model.create(req.body)
+            const data = await model.create(req.body)
+            
 
             res.status(201).json(
                 {
@@ -101,7 +102,7 @@ exports.add = async (req, res) => {
         res.status(500).json(
             {
                 status: 'fail',
-                msg: error
+                msg: error.message
             }
         )
         

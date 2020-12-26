@@ -8,7 +8,6 @@ const ordersSchema = mongoose.Schema(
         },
         productId : {
             type : String,
-            ref : 'Products'
         },
         quantity: {
             type : Number,
