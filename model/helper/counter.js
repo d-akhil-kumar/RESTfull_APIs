@@ -7,7 +7,10 @@ const counterSchema = mongoose.Schema(
         },
         orderCounter : {
             type: Number
-        }
+        },
+        userCounter : {
+            type: Number
+        }        
     }
 )
 

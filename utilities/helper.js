@@ -6,6 +6,7 @@ const counterModel = require('../model/helper/counter.js')
 // {
 //     productCounter : <initial_Start_number>
 //     orderCounter : <initial_Start_number>
+//     userCounter: <initial_Start_number>
 // }
 
 
@@ -45,5 +46,28 @@ exports.generateOrderId = async () => {
     )    
 
     return 'O' + counter.orderCounter
+
+}
+
+
+exports.generateUserId = async () => {
+
+   
+
+    const counter = await counterModel.findOneAndUpdate(
+        {},
+        {
+           $inc : {
+            userCounter : 1
+           }
+        },
+        {
+            new: true
+        }
+    )    
+
+   
+
+    return 'U' + counter.userCounter
 
 }
