@@ -1,11 +1,13 @@
 # RESTful API
 
 ###### About:
-    This repository has everything a RESTful API should have like ***connection with Database, Routes, CRUD operations, Security, Authorizations, Error-Handling.***
+    This repository has everything a RESTful API should have like 
+    ***connection with Database, Routes, CRUD operations, Security, Authorizations, Error-Handling.***
 
     
 ###### How To get the best out of it:
-    Modify as per your requirement. Easy and readable project structure is maintained. Create your own models, their validations, authorization, new routes, contraintes etc. etc
+    Modify as per your requirement. Easy and readable project structure is maintained.
+    Create your own models, their validations, authorization, new routes, contraintes etc. etc
     
 
 ###### Softwares Used:
