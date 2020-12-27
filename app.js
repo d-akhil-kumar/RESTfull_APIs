@@ -9,34 +9,32 @@ const logger = require('./utilities/logger')
 const corsHandler = require('./utilities/handlingCors')
 const dotenv = require('dotenv')
 
-
-
 dotenv.config()
 
 const app = express()
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+   .use(bodyParser.urlencoded({ extended: true }))
 
+   .use(morgan('combined', { stream: logger }))
 
-app.use(morgan('combined', { stream: logger }))
+   .use(express.static('public'))
+   .use(corsHandler)
 
-app.use(express.static('public'))
-app.use(corsHandler)
+   .use('/products', productsRoute)
+   .use('/orders', ordersRoute)
+   .use('/users', usersRoute)
 
-app.use('/products', productsRoute)
-app.use('/orders', ordersRoute)
-app.use('/users', usersRoute)
-
-
-app.use((req,res,next) => {
+   .use((req,res,next) => {
     const error = new Error()
     error.message = 'Bad Request'
     error.status = 500
     next(error)
-})
+    })
 
-app.use(errHandler)
+   .use(errHandler)
+
+   
 
 const PORT = process.env.PORT || 3000
 

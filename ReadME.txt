@@ -8,10 +8,11 @@ Things Used:
     4. Error Handling: exception handling and error middleware
     5. CORS: handling CORS errors
     6. Mongoose: using mongoDB ODM, for easy collections schema and model
-    7. dotenv: to set and read enviroment variables
+    7. dotenv: to set and read enviroment variables from .env file
     8. counter utility: to generate unique sequence/id for documents
     9. multer: to store files and accept data in form-data type
     10. bcryptjs: to encrypt password before storing it in database
+    11. jsonwebtoken: to generate token for signed in users, and secure routes
     
 
 
