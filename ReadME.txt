@@ -1,20 +1,20 @@
-#RESTful API
+RESTful API
 
-## About:
+About:
     This repository has everything a RESTful API should have like connection with Database, Routes, CRUD operations, Security, Authorizations, Error-Handling.
     
-## How To get the best out of it:
+How To get the best out of it:
     Modify as per your requirement. Easy and readable project structure is maintained. Create your own models, their validations, authorization, new routes, contraintes etc. etc
     
 
-## Softwares Used:
+Softwares Used:
     1. Node.js
     2. MongoDB
     3. VScode (Code Editor)
     4. Postman (Testing Purpose)
     
 
-## Things Used:
+Things Used:
     1. Express: to handle routes, middlewares and to run server
     2. Body-parse: to parse the input json request from the user
     3. Morgan: to log all the request made by the clients and appending it in a log file
