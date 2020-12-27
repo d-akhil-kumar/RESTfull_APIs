@@ -4,18 +4,27 @@
 This repository has everything a RESTful API should have like:-
 ***connection with Database, Routes, Middlewares, CRUDs, Security, Authorizations, Error-Handling***.
 
+
+---
+
     
 ###### How To get the best out of it:
 Modify as per your requirement. Easy and readable project structure is maintained.
 Create your own models, their validations, authorization, new routes, contraintes etc. etc
     
+    
+---
+
 
 ###### Softwares Used:
 1. Node.js
 2. MongoDB
 3. VScode (Code Editor)
 4. Postman (Testing Purpose)
-    
+   
+   
+---
+
 
 ###### Things Used:
 1. [Express](https://github.com/expressjs/express): to handle routes, middlewares and to run server
