@@ -2,7 +2,7 @@
 
 ###### About:
     This repository has everything a RESTful API should have like 
-    ***connection with Database, Routes, CRUD operations, Security, Authorizations, Error-Handling.***
+    ***connection with Database, Routes, CRUD operations, Security, Authorizations, Error-Handling***.
 
     
 ###### How To get the best out of it:
