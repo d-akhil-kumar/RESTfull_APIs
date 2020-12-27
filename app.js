@@ -8,6 +8,7 @@ const morgan = require('morgan')
 const logger = require('./utilities/logger')
 const corsHandler = require('./utilities/handlingCors')
 const dotenv = require('dotenv')
+const helmet = require('helmet')
 
 dotenv.config()
 
@@ -15,6 +16,8 @@ const app = express()
 
 app.use(bodyParser.json())
    .use(bodyParser.urlencoded({ extended: true }))
+
+   .use(helmet())
 
    .use(morgan('combined', { stream: logger }))
 
